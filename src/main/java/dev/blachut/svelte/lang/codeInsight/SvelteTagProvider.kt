@@ -48,7 +48,7 @@ class SvelteTagProvider : XmlElementDescriptorProvider, XmlTagNameProvider {
         if (tag == null || tag !is SvelteHtmlTag) return null
         if (!isSvelteComponentTag(tag.name)) return null
 
-        val result = SvelteTagReference(tag).resolve()
+        val result = tag.reference?.resolve()
 
         if (result !is JSElement) return null
 
