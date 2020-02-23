@@ -70,6 +70,7 @@
         <postStartupActivity implementation="dev.blachut.svelte.lang.linters.EslintInitStartupActivity"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
+        <indexedFileTypeProvider implementation="dev.blachut.svelte.lang.SvelteIndexedFileTypeProvider"/>
         <dialectSpecificHandlersFactory language="SvelteJS"
                                         implementationClass="dev.blachut.svelte.lang.SvelteJSSpecificHandlersFactory"/>
         <analysisHandlersFactory language="SvelteJS"
