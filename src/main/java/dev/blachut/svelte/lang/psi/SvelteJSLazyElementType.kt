@@ -3,6 +3,7 @@ package dev.blachut.svelte.lang.psi
 import com.intellij.lang.ASTNode
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.PsiBuilderFactory
+import com.intellij.lang.javascript.JSLanguageUtil
 import com.intellij.lang.javascript.parsing.JavaScriptParser
 import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.ILazyParseableElementType
@@ -21,7 +22,7 @@ abstract class SvelteJSLazyElementType(debugName: String) : ILazyParseableElemen
     override fun doParseContents(chameleon: ASTNode, psi: PsiElement): ASTNode {
         val project = psi.project
         val builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, null, language, chameleon.chars)
-        val parser = SvelteJSLanguage.INSTANCE.createParser(builder)
+        val parser = JSLanguageUtil.createJSParser(language, builder)
 
         val rootMarker = builder.mark()
 
